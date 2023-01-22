@@ -14,6 +14,7 @@ gcp-auth:
   image: google/cloud-sdk:slim
   stage: config
   script:
+    - gcloud config set project "tf-demo-375508"
     - echo ${CI_JOB_JWT_V2} > .ci_job_jwt_file
     - gcloud iam workload-identity-pools create-cred-config ${GCP_WORKLOAD_IDENTITY_PROVIDER}
       --service-account="${GCP_SERVICE_ACCOUNT}"
