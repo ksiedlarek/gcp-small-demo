@@ -25,3 +25,6 @@ gcp-sts:
 
 validate:
   extends: .terraform:validate
+
+plan:
+  extends: .terraform:build
