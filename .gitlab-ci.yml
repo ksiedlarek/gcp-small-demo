@@ -12,4 +12,5 @@ gcp-auth:
 gcp-sts:
   image: dwdraju/alpine-curl-jq
   script:
-   ./run_gcp_sts.sh
+    - chmod u+x ./run_gcp_sts.sh
+    - ./run_gcp_sts.sh
