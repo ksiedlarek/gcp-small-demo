@@ -31,5 +31,6 @@ tf-start:
   dependencies:
     - gcp-sts
   script:
+    - echo $ACCESS_TOKEN
     - terraform init -var access_token=$ACCESS_TOKEN
     - terraform validate
