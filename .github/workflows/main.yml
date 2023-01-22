@@ -22,7 +22,8 @@ jobs:
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v2
 
-    - id: 'auth'
+    - name: 'Auth to GCP'
+      id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
         workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
@@ -31,9 +32,13 @@ jobs:
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
 
-    - name: 'Use gcloud CLI'
+    - name: 'Test command: gcloud info'
       run: 'gcloud info'
 
-    - name: Terraform Init
+    - name: Terraform init
       run: |
         terraform init
+
+    - name: Terraform validate
+      run: |
+        terraform validate
