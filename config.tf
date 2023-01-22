@@ -1,6 +1,8 @@
 provider "google" {
   project = var.project_id
   region  = var.region
+  access_token = var.access_token
+  impersonate_service_account = "gitlab-tf-demo@tf-demo-375508.iam.gserviceaccount.com"
 }
 
 terraform {

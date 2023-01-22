@@ -30,10 +30,5 @@ gcp-sts:
   script:
     - chmod u+x ./run_gcp_sts.sh
     - ./run_gcp_sts.sh
-
-
-validate:
-  stage: validate
-  script:
-    - terraform init
+    - terraform init -var access_token=$ACCESS_TOKEN
     - terraform validate
