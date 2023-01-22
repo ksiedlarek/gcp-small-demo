@@ -14,3 +14,10 @@ gcp-sts:
   script:
     - chmod u+x ./run_gcp_sts.sh
     - ./run_gcp_sts.sh
+
+tf:
+  image:
+  name: hashicorp/terraform:1.3.7
+  script:
+    - terraform -v
+    - terraform init
