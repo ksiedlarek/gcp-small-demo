@@ -9,7 +9,3 @@ variable "region" {
 variable "zone" {
 
 }
-
-variable "access_token" {
-
-}
