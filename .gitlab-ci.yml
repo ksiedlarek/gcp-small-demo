@@ -1,3 +1,11 @@
+include:
+ # To fetch the latest template, use:
+  - template: Terraform.latest.gitlab-ci.yml
+
+# variables:
+#  TF_STATE_NAME: default
+#  TF_CACHE_KEY: default
+
 gcp-auth:
   image: google/cloud-sdk:slim
   script:
@@ -15,9 +23,5 @@ gcp-sts:
     - chmod u+x ./run_gcp_sts.sh
     - ./run_gcp_sts.sh
 
-tf:
-  image: hashicorp/terraform:1.3.7
-  entrypoint: [""]
-  script:
-    - terraform -v
-    - terraform init
+validate:
+  extends: .terraform:validate
