@@ -1,13 +1,13 @@
-include:
- # To fetch the latest template, use:
-  - template: Terraform.latest.gitlab-ci.yml
+stages:
+  - config
+  - validate
+  - plan
+  - apply
 
-# variables:
-#  TF_STATE_NAME: default
-#  TF_CACHE_KEY: default
 
 gcp-auth:
   image: google/cloud-sdk:slim
+  stage: config
   script:
     - echo ${CI_JOB_JWT_V2} > .ci_job_jwt_file
     - gcloud iam workload-identity-pools create-cred-config ${GCP_WORKLOAD_IDENTITY_PROVIDER}
@@ -19,12 +19,11 @@ gcp-auth:
 
 gcp-sts:
   image: dwdraju/alpine-curl-jq
+  stage: config
   script:
     - chmod u+x ./run_gcp_sts.sh
     - ./run_gcp_sts.sh
 
 validate:
-  extends: .terraform:validate
-
-plan:
-  extends: .terraform:build
+  stage: validate
+  script: terraform validate
