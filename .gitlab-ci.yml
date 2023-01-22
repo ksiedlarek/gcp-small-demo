@@ -29,6 +29,9 @@ gcp-sts:
     - chmod u+x ./run_gcp_sts.sh
     - ./run_gcp_sts.sh
 
+
 validate:
   stage: validate
-  script: terraform validate
+  script:
+    - terraform init
+    - terraform validate
