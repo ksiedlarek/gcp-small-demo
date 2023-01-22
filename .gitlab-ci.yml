@@ -17,6 +17,7 @@ gcp-sts:
 
 tf:
   image: hashicorp/terraform:1.3.7
+  entrypoint: [""]
   script:
     - terraform -v
     - terraform init
