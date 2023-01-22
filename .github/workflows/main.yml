@@ -9,6 +9,7 @@ env:
   WORKLOAD_IDENTITY_PROVIDER: 'projects/696181559141/locations/global/workloadIdentityPools/github/providers/github'
 jobs:
   gcp-set:
+    runs-on: ubuntu-latest
     # Add "id-token" with the intended permissions.
     permissions:
       contents: 'read'
