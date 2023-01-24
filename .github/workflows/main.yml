@@ -1,12 +1,8 @@
 on:
   push:
     branches:
-      - main
+      - deploy
 
-env:
-  PROJECT_ID: "tf-demo-375508"
-  SA: "gitlab-tf-demo@tf-demo-375508.iam.gserviceaccount.com"
-  WORKLOAD_IDENTITY_PROVIDER: 'projects/696181559141/locations/global/workloadIdentityPools/github/providers/github'
 jobs:
   initialize:
     name: Initialize
@@ -27,8 +23,8 @@ jobs:
       id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
-        service_account: '${{ env.SA }}'
+        workload_identity_provider: '${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}'
+        service_account: '${{ secrets.SA }}'
 
     - name: 'Set up Cloud SDK'
       uses: 'google-github-actions/setup-gcloud@v1'
@@ -68,8 +64,8 @@ jobs:
         id: 'auth'
         uses: 'google-github-actions/auth@v1'
         with:
-          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
-          service_account: '${{ env.SA }}'
+          workload_identity_provider: '${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.SA }}'
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
 
