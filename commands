@@ -1,0 +1,4 @@
+gcloud iam workload-identity-pools create-cred-config \
+    projects/696181559141/locations/global/workloadIdentityPools/gitlab/providers/gitlab-gitlab \
+    --service-account=gitlab-tf-demo@tf-demo-375508.iam.gserviceaccount.com \
+    --output-file=creds.json

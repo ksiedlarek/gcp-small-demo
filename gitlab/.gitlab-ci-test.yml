@@ -1,4 +1,0 @@
-stages:
- - config
- - plan
- - deploy
