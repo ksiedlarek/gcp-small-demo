@@ -34,7 +34,7 @@ jobs:
 
     - name: Terraform init
       run: |
-        terraform init
+        terraform init -upgrade
 
     - name: Terraform validate
       run: |
@@ -72,7 +72,7 @@ jobs:
 
       - name: Terraform init
         run: |
-          terraform init
+          terraform init -upgrade
 
       - name: Terraform apply
         run: |
