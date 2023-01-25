@@ -4,6 +4,7 @@ provider "google" {
 }
 
 terraform {
+
   backend "gcs" {
     bucket = "fc4da6d62bc8b056-tfst"
     prefix = "terraform/demo-infra/tfstate"
@@ -12,7 +13,7 @@ terraform {
   required_providers {
     google = {
       source = "hashicorp/google"
-      version = "4.50.0"
+      version = "4.49.0"
     }
   }
 }
